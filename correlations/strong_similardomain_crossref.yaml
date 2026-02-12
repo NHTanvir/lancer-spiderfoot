@@ -1,0 +1,17 @@
+id: strong_similardomain_crossref
+version: 1
+meta:
+  name: "Similar domain cross-references infra"
+  description: "A similar-looking domain cross-refs target infra."
+  risk: LOW
+  scope: domain
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: has_value
+        field: type
+        value: 'SIMILARDOMAIN'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Similar domain cross-referencing infra: {data}"

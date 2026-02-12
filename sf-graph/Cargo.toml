@@ -1,0 +1,20 @@
+[package]
+name = "sf-graph"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Entity correlation engine + graph export for lancer-spiderfoot"
+
+[dependencies]
+sf-core = { workspace = true }
+petgraph = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_yaml = { workspace = true }
+regex = { workspace = true }
+thiserror = { workspace = true }
+rayon = { workspace = true }
+chrono = { workspace = true }
+tracing = { workspace = true }

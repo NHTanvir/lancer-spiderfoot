@@ -1,0 +1,20 @@
+id: host_only_from_certificatetransparency
+version: 1
+meta:
+  name: "Host only from CT logs"
+  description: "A host present only in CT logs."
+  risk: INFO
+  scope: domain
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'INTERNET_NAME'
+      - method: in_list
+        field: module
+        value: 'sfp_crtsh,sfp_certspotter,sfp_certtransparency'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Host only from CT logs: {data}"

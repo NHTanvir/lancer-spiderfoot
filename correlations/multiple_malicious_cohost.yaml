@@ -1,0 +1,19 @@
+id: multiple_malicious_cohost
+version: 1
+meta:
+  name: "Co-host flagged by multiple sources"
+  description: "A co-hosted site flagged by 2+ TI sources."
+  risk: MEDIUM
+  scope: network
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'MALICIOUS_COHOST'
+aggregation:
+  field: data
+analysis:
+  - method: threshold
+    minimum: 2
+headline: "Co-host flagged by multiple TI sources: {data}"

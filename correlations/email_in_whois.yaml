@@ -1,0 +1,20 @@
+id: email_in_whois
+version: 1
+meta:
+  name: "Personal email in WHOIS"
+  description: "A personal email address leaked via WHOIS records."
+  risk: MEDIUM
+  scope: domain
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'EMAILADDR'
+      - method: in_list
+        field: module
+        value: 'sfp_whois,sfp_whoxy,sfp_jsonwhois,sfp_whoisology'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Email leaked via WHOIS: {data}"

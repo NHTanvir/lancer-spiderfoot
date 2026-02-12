@@ -1,0 +1,20 @@
+id: strong_affiliate_certs
+version: 1
+meta:
+  name: "Strong affiliate cert linkage"
+  description: "Strong certificate linkage between target and affiliate."
+  risk: INFO
+  scope: network
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'AFFILIATE_INTERNET_NAME'
+      - method: in_list
+        field: module
+        value: 'sfp_crtsh,sfp_certspotter'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Cert linkage to affiliate: {data}"

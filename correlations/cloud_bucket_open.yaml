@@ -1,0 +1,17 @@
+id: cloud_bucket_open
+version: 1
+meta:
+  name: "Open cloud storage bucket"
+  description: "A publicly accessible cloud storage bucket was found."
+  risk: HIGH
+  scope: domain
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: has_value
+        field: type
+        value: 'CLOUD_STORAGE_BUCKET_OPEN'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Publicly accessible cloud bucket: {data}"

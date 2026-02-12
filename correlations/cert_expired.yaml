@@ -1,0 +1,17 @@
+id: cert_expired
+version: 1
+meta:
+  name: "Expired TLS certificate"
+  description: "An SSL/TLS certificate in the target's footprint has expired."
+  risk: MEDIUM
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: has_value
+        field: type
+        value: 'SSL_CERTIFICATE_EXPIRED'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Expired TLS certificate: {data}"

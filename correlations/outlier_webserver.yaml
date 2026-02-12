@@ -1,0 +1,19 @@
+id: outlier_webserver
+version: 1
+meta:
+  name: "Rare webserver header"
+  description: "A rare webserver header amid common ones."
+  risk: INFO
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'WEBSERVER_BANNER'
+aggregation:
+  field: data
+analysis:
+  - method: outlier
+    minimum: 1
+headline: "Rare webserver header: {data}"

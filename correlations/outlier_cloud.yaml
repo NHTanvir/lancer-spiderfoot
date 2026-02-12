@@ -1,0 +1,19 @@
+id: outlier_cloud
+version: 1
+meta:
+  name: "Cloud provider outlier"
+  description: "A cloud provider outlier in the target footprint."
+  risk: INFO
+  scope: network
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: has_value
+        field: type
+        value: 'CLOUD_STORAGE_BUCKET'
+aggregation:
+  field: data
+analysis:
+  - method: outlier
+    minimum: 1
+headline: "Cloud provider outlier: {data}"

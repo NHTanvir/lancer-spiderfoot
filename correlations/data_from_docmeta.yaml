@@ -1,0 +1,17 @@
+id: data_from_docmeta
+version: 1
+meta:
+  name: "Data in document metadata"
+  description: "Hostnames / PII extracted from document metadata."
+  risk: LOW
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: has_value
+        field: type
+        value: 'RAW_FILE_META_DATA'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Data extracted from document metadata"

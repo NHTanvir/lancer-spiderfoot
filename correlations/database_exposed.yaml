@@ -1,0 +1,17 @@
+id: database_exposed
+version: 1
+meta:
+  name: "Internet-exposed database"
+  description: "A database service is reachable from the internet."
+  risk: HIGH
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: regex
+        field: data
+        value: ':(3306|5432|27017|6379|9200|5984|11211|1433|9300)$'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Exposed database service: {data}"

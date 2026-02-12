@@ -1,0 +1,17 @@
+id: remote_desktop_exposed
+version: 1
+meta:
+  name: "Remote desktop exposed"
+  description: "RDP / VNC / SSH is publicly reachable."
+  risk: HIGH
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: regex
+        field: data
+        value: ':(3389|5900|5901|22|23)$'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Remote access service exposed: {data}"

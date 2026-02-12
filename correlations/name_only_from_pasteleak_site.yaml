@@ -1,0 +1,20 @@
+id: name_only_from_pasteleak_site
+version: 1
+meta:
+  name: "Name only from paste/leak site"
+  description: "A name seen only on a paste/leak source."
+  risk: LOW
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'HUMAN_NAME'
+      - method: exact
+        field: module
+        value: 'sfp_pastebin'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Name only from paste site: {data}"

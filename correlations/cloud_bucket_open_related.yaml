@@ -1,0 +1,19 @@
+id: cloud_bucket_open_related
+version: 1
+meta:
+  name: "Open bucket on related org"
+  description: "An open cloud bucket on an affiliate / related org."
+  risk: HIGH
+  scope: network
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: has_value
+        field: type
+        value: 'CLOUD_STORAGE_BUCKET_OPEN'
+aggregation:
+  field: data
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Open bucket on related org: {data}"

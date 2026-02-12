@@ -1,0 +1,20 @@
+id: host_only_from_bruteforce
+version: 1
+meta:
+  name: "Host only from brute force"
+  description: "A host found only via subdomain brute force."
+  risk: INFO
+  scope: domain
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'INTERNET_NAME'
+      - method: in_list
+        field: module
+        value: 'sfp_dnsbrute,sfp_dnscommonsrv,sfp_subdomain_brute'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Host only found via brute force: {data}"
