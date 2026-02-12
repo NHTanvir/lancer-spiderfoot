@@ -1,0 +1,19 @@
+id: multiple_malicious
+version: 1
+meta:
+  name: "Host flagged by multiple sources"
+  description: "An IP flagged malicious by 2+ threat-intel sources."
+  risk: HIGH
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'MALICIOUS_IPADDR'
+aggregation:
+  field: data
+analysis:
+  - method: threshold
+    minimum: 2
+headline: "IP flagged by multiple TI sources: {data}"

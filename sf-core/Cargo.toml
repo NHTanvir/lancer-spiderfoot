@@ -1,0 +1,35 @@
+[package]
+name = "sf-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Orchestration engine for lancer-spiderfoot: events, modules, bus, scan, persistence"
+
+[dependencies]
+tokio = { workspace = true }
+tokio-util = { workspace = true }
+futures = { workspace = true }
+async-trait = { workspace = true }
+reqwest = { workspace = true }
+sqlx = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_yaml = { workspace = true }
+toml = { workspace = true }
+dashmap = { workspace = true }
+indexmap = { workspace = true }
+once_cell = { workspace = true }
+governor = { workspace = true }
+xxhash-rust = { workspace = true }
+uuid = { workspace = true }
+rand = { workspace = true }
+chrono = { workspace = true }
+url = { workspace = true }
+tracing = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+inventory = { workspace = true }
+regex = { workspace = true }
+directories = { workspace = true }

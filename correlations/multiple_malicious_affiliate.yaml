@@ -1,0 +1,19 @@
+id: multiple_malicious_affiliate
+version: 1
+meta:
+  name: "Affiliate flagged by multiple sources"
+  description: "An affiliate flagged by 2+ TI sources."
+  risk: MEDIUM
+  scope: network
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'MALICIOUS_AFFILIATE_INTERNET_NAME'
+aggregation:
+  field: data
+analysis:
+  - method: threshold
+    minimum: 2
+headline: "Affiliate flagged by multiple TI sources: {data}"

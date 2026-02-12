@@ -1,0 +1,17 @@
+id: data_from_base64
+version: 1
+meta:
+  name: "Sensitive data in base64"
+  description: "Base64-encoded data discovered that may hide secrets."
+  risk: LOW
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: regex
+        field: data
+        value: '[A-Za-z0-9+/]{40,}={0,2}'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Possible base64-encoded data: {data}"

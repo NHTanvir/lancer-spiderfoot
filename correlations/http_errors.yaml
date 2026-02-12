@@ -1,0 +1,17 @@
+id: http_errors
+version: 1
+meta:
+  name: "Cluster of HTTP 5xx errors"
+  description: "An unusual number of HTTP 5xx responses."
+  risk: LOW
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: regex
+        field: data
+        value: '^5\d\d$'
+analysis:
+  - method: threshold
+    minimum: 3
+headline: "Cluster of HTTP server errors"

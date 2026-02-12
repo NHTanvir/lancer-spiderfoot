@@ -1,0 +1,19 @@
+id: outlier_registrar
+version: 1
+meta:
+  name: "Unusual registrar"
+  description: "A domain with an unusual registrar vs siblings."
+  risk: INFO
+  scope: domain
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'DOMAIN_REGISTRAR'
+aggregation:
+  field: data
+analysis:
+  - method: outlier
+    minimum: 1
+headline: "Unusual registrar: {data}"

@@ -1,0 +1,17 @@
+id: internal_host
+version: 1
+meta:
+  name: "Internal hostname exposed"
+  description: "An internal-only hostname is exposed externally."
+  risk: MEDIUM
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: regex
+        field: data
+        value: '(?i)(^|\.)(internal|intranet|corp|local|priv)\.'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Internal hostname exposed: {data}"

@@ -1,0 +1,19 @@
+id: outlier_hostname
+version: 1
+meta:
+  name: "Anomalous hostname"
+  description: "A hostname anomalous to the naming convention."
+  risk: INFO
+  scope: domain
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'INTERNET_NAME'
+aggregation:
+  field: data
+analysis:
+  - method: outlier
+    minimum: 1
+headline: "Anomalous hostname: {data}"

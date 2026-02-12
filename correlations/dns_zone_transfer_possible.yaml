@@ -1,0 +1,17 @@
+id: dns_zone_transfer_possible
+version: 1
+meta:
+  name: "DNS zone transfer possible"
+  description: "A nameserver allows AXFR zone transfers."
+  risk: HIGH
+  scope: domain
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: module
+        value: 'sfp_dnszonexfer'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Zone transfer possible: {data}"

@@ -1,0 +1,20 @@
+id: stale_host
+version: 1
+meta:
+  name: "Stale / abandoned host"
+  description: "A host with abandoned or outdated signals."
+  risk: LOW
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'INTERNET_NAME'
+      - method: exact
+        field: module
+        value: 'sfp_waybackarchive'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Stale host signal: {data}"

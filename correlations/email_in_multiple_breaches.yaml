@@ -1,0 +1,19 @@
+id: email_in_multiple_breaches
+version: 1
+meta:
+  name: "Email in multiple breaches"
+  description: "An email address appears in two or more breaches."
+  risk: MEDIUM
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'EMAILADDR_COMPROMISED'
+aggregation:
+  field: data
+analysis:
+  - method: threshold
+    minimum: 2
+headline: "Email in multiple breaches: {data}"

@@ -1,0 +1,19 @@
+id: outlier_email
+version: 1
+meta:
+  name: "Atypical email pattern"
+  description: "An atypical email pattern relative to the org baseline."
+  risk: INFO
+  scope: domain
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'EMAILADDR'
+aggregation:
+  field: data
+analysis:
+  - method: outlier
+    minimum: 1
+headline: "Atypical email pattern: {data}"

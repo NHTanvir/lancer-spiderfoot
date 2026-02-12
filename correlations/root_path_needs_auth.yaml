@@ -1,0 +1,20 @@
+id: root_path_needs_auth
+version: 1
+meta:
+  name: "Root path requires auth"
+  description: "A site root requires authentication (forgotten panel)."
+  risk: LOW
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'HTTP_CODE'
+      - method: in_list
+        field: data
+        value: '401,403'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Root path requires auth (HTTP {data})"

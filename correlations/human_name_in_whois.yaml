@@ -1,0 +1,20 @@
+id: human_name_in_whois
+version: 1
+meta:
+  name: "Personal name in WHOIS"
+  description: "A personal name leaked via WHOIS records."
+  risk: MEDIUM
+  scope: domain
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'HUMAN_NAME'
+      - method: in_list
+        field: module
+        value: 'sfp_whois,sfp_whoxy,sfp_jsonwhois'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Name leaked via WHOIS: {data}"

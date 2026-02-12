@@ -1,0 +1,19 @@
+id: outlier_country
+version: 1
+meta:
+  name: "Geographic outlier"
+  description: "A geographic outlier in the target footprint."
+  risk: INFO
+  scope: network
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'COUNTRY_NAME'
+aggregation:
+  field: data
+analysis:
+  - method: outlier
+    minimum: 1
+headline: "Geographic outlier: {data}"

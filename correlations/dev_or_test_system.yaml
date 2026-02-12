@@ -1,0 +1,17 @@
+id: dev_or_test_system
+version: 1
+meta:
+  name: "Dev/test system in DNS"
+  description: "A development / staging / test host is indexed in DNS."
+  risk: MEDIUM
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: regex
+        field: data
+        value: '(?i)(^|\.)(dev|test|staging|uat|qa|sandbox|demo)\.'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Dev/test system exposed: {data}"

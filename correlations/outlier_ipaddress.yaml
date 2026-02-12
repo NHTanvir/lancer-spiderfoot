@@ -1,0 +1,19 @@
+id: outlier_ipaddress
+version: 1
+meta:
+  name: "IP outside normal blocks"
+  description: "An IP outside the normal allocation blocks."
+  risk: INFO
+  scope: network
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'IP_ADDRESS'
+aggregation:
+  field: data
+analysis:
+  - method: outlier
+    minimum: 1
+headline: "IP outside normal blocks: {data}"

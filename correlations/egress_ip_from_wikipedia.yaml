@@ -1,0 +1,20 @@
+id: egress_ip_from_wikipedia
+version: 1
+meta:
+  name: "Egress IP in Wikipedia history"
+  description: "A corporate egress IP appears in Wikipedia edit history."
+  risk: LOW
+  scope: network
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'IP_ADDRESS'
+      - method: exact
+        field: module
+        value: 'sfp_wikipedia'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Egress IP in Wikipedia edits: {data}"

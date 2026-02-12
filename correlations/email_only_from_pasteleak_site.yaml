@@ -1,0 +1,20 @@
+id: email_only_from_pasteleak_site
+version: 1
+meta:
+  name: "Email only from paste/leak site"
+  description: "An email seen only on a paste/leak source."
+  risk: LOW
+  scope: host
+  author: "lancer-spiderfoot"
+collections:
+  - collect:
+      - method: exact
+        field: type
+        value: 'EMAILADDR'
+      - method: in_list
+        field: module
+        value: 'sfp_pastebin,sfp_psbdmp'
+analysis:
+  - method: threshold
+    minimum: 1
+headline: "Email only from paste site: {data}"
